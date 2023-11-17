@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @change_column_name %>
+
+<div>
+  <%= link_to "Edit this change column name", edit_change_column_name_path(@change_column_name) %> |
+  <%= link_to "Back to change column names", change_column_names_path %>
+
+  <%= button_to "Destroy this change column name", @change_column_name, method: :delete %>
+</div>

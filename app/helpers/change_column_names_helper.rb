@@ -1,0 +1,2 @@
+module ChangeColumnNamesHelper
+end
