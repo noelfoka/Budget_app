@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-lg rounded" style="background-color:#edf3fc">
+  <div class="navbar" id="navbarNav">
+    <ul class="nav nav-tabs">
+      <% if user_signed_in? %>
+        <li>
+          <%=link_to "/" do%>
+            <i class="bi bi-caret-left-fill" style="font-size: 2rem; color: cornflowerblue;"></i>
+          <%end%>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'nav-link' %>
+        </li>
+      <% else%>
+        <li class="nav-item">
+          <%= link_to "Sign Up", new_user_registration_path, class: 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Log In", new_user_session_path, class: 'nav-link' %>
+        </li>
+      <%end%>
+    </ul>
+  </div>
+</nav>
