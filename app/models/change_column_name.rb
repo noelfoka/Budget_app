@@ -1,2 +1,0 @@
-class ChangeColumnName < ApplicationRecord
-end

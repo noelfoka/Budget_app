@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :change_column_names
+  root to: "user#index"
   resources :details
   resources :tran_groups
   resources :users
