@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'welcome/index'
+  devise_for :users
   resources :expenses
   resources :categories
   resources :users
