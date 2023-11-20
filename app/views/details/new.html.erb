@@ -1,6 +1,0 @@
-<div class="p-2 m-2 rounded" style="background-color:#edf3fc">
-  <h2>CREATE TRANSACTION</h2>
-  <% @group_name = TranGroup.find(params[:tran_group_id]) %>
-  <h5><strong>Group Name: </strong> <%= @group_name.name %></h5>
-  <%= render "form", detail: @detail %>
-</div>

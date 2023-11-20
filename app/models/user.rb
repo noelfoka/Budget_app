@@ -3,11 +3,15 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  has_many :categories
+  has_many :expenses
 
-  has_many :TranDetails
-  has_many :TranGroups
+  validates :name, presence: true, length: { minimum: 3, maximum: 50 }
+  validate :fullname
 
-  validates :name, presence: true
-  validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
-  validates :password, presence: true, length: { minimum: 6 }
+  def fullname
+    return unless name.split.size != 2
+
+    errors.add(:name, 'must contain two names separated by a space')
+  end
 end
