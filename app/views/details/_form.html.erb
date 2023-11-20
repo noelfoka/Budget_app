@@ -1,37 +1,31 @@
-<%= form_with(model: detail) do |form| %>
-  <% if detail.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(detail.errors.count, "error") %> prohibited this detail from being saved:</h2>
-
-      <ul>
-        <% detail.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+<div class="p-2 m-2 rounded" style="background-color:#edf3fc">
+  <%= form_with(model: [ @tran_group, @detail], url: tran_group_details_path(@tran_group, @detail), local: true) do |form| %>
+    <% if detail.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(detail.errors.count, "error") %> prohibited this detail from being saved:</h2>
+        <ul>
+          <% detail.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div>
+      <%= form.label :itemDetails, style: "display: block" %>
+      <%= form.text_field :itemDetails %>
+    </div>
+    <div>
+      <%= form.label :amount, style: "display: block" %>
+      <%= form.text_field :amount %>
+    </div>
+    <div>
+      <%= form.label :tran_group_id, style: "display: block" %>
+      <%= form.collection_select :tran_group_id, @available_groups, :id, :groupName, prompt: "Select a Group" %>
+    </div>
+    <br />
+    <div>
+      <%= form.submit 'Add Transaction', class: "btn btn-outline-success"%>
+      <%= link_to "Back to tran details", tran_group_details_path, class: "btn btn-outline-warning" %>
     </div>
   <% end %>
-
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div>
-    <%= form.label :amount, style: "display: block" %>
-    <%= form.text_field :amount %>
-  </div>
-
-  <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
-  </div>
-
-  <div>
-    <%= form.label :tran_group_id, style: "display: block" %>
-    <%= form.text_field :tran_group_id %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

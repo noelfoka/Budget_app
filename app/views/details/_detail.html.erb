@@ -1,22 +1,22 @@
-<div id="<%= dom_id detail %>">
-  <p>
-    <strong>Name:</strong>
-    <%= detail.name %>
-  </p>
-
-  <p>
-    <strong>Amount:</strong>
-    <%= detail.amount %>
-  </p>
-
-  <p>
-    <strong>User:</strong>
-    <%= detail.user_id %>
-  </p>
-
-  <p>
-    <strong>Tran group:</strong>
-    <%= detail.tran_group_id %>
-  </p>
-
+<div class="p-2 m-2 rounded" style="background-color:#edf3fc">
+  <div id="<%= dom_id detail %>">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">S.L</th>
+          <th scope="col">Transection Details</th>
+          <th scope="col">Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% summary.each do |tran|%>
+          <tr>
+            <td scope="row"></td>
+            <td scope="row"><%= tran.itemDetails %></td>
+            <td scope="row"><%= tran.amount %></td>
+          </tr>
+        <%end%>
+      </tbody>
+    </table>
+  </div>
 </div>
