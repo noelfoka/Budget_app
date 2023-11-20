@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Tran groups</h1>
+
+<div id="tran_groups">
+  <% @tran_groups.each do |tran_group| %>
+    <%= render tran_group %>
+    <p>
+      <%= link_to "Show this tran group", tran_group %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New tran group", new_tran_group_path %>
